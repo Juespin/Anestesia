@@ -6,7 +6,7 @@ Created on Thu Apr 21 08:48:46 2022
 """
 
 import numpy as np
-import scipy.signal as signal
+from scipy.signal import windows
 
 
 def firws(m, f, w, t=None):
@@ -191,7 +191,7 @@ def filter_design(fs, locutoff=0, hicutoff=0, revfilt=0):
           + str(cutoffArray) + ' Hz\n')
 
     # Window
-    winArray = signal.hamming(int(filtorder)+1)
+    winArray = windows.hamming(int(filtorder)+1)
     # Filter coefficients
     if revfilt == 1:
         filterTypeArray = ['high', 'stop']
